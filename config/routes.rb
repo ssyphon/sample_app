@@ -1,5 +1,8 @@
 SampleApp::Application.routes.draw do
-  get "users/new"
+  resources :users
+  # resources :users doesn’t just add a working /users/1 URI; it endows our sample application 
+  # with all the actions needed for a RESTful Users resource,5 
+  # along with a large number of named routes (Section 5.3.3) for generating user URIs. 
   
   root to: 'static_pages#home'
 
