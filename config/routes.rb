@@ -1,11 +1,15 @@
 SampleApp::Application.routes.draw do
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
   # resources :users doesn’t just add a working /users/1 URI; it endows our sample application 
   # with all the actions needed for a RESTful Users resource,5 
   # along with a large number of named routes (Section 5.3.3) for generating user URIs. 
-  
+
   root to: 'static_pages#home'
 
+  match '/signup',  to: 'users#new'
+  match '/signin',  to: 'sessions#new'
+  match '/signout', to: 'sessions#destroy', via: :delete
   match '/help',    to: 'static_pages#help'
   match '/about',   to: 'static_pages#about'
   match '/contact', to: 'static_pages#contact'
