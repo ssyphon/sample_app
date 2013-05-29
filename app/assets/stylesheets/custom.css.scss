@@ -152,6 +152,9 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
   @include box_sizing;
 }
+.edit_gravitar {
+  margin-bottom: 100px;
+}
 
 input {
   height: auto !important;
